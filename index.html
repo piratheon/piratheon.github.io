@@ -4,522 +4,524 @@
   <meta charset="UTF-8" />
   <link rel="icon" href="https://raw.githubusercontent.com/piratheon/piratheon/refs/heads/main/.github/piratheon_eye.svg" type="image/svg+xml">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Chafiq El Ibrahimi — Linux-focused developer, ethical security researcher, and builder of privacy-respecting system tooling." />
-  <meta name="theme-color" content="#0a0e14" />
-  <title>Piratheon - Portfolio</title>
-  
-  <!-- Preconnect to CDNs -->
+  <meta name="description" content="Chafiq El Ibrahimi — systems-oriented developer and ethical security researcher building privacy-respecting tooling and self-hosted agentic AI." />
+  <meta name="theme-color" content="#0a0e0c" />
+  <title>Chafiq El Ibrahimi — Systems-Oriented Developer</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-  
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  
-  <!-- Three.js (loaded async) -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" defer></script>
-  
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
-    /* ===== CSS VARIABLES & RESET ===== */
+    /* =========================================================
+       DESIGN TOKENS
+       Charcoal Pine / Bone / Slate Sage / Spearmint / Deep Pine
+       ========================================================= */
     :root {
-      --bg-primary: #0a0e14;
-      --bg-surface: rgba(22, 28, 40, 0.7);
-      --bg-surface-hover: rgba(30, 38, 54, 0.85);
-      --accent-primary: #6366f1;
-      --accent-secondary: #22d3ee;
-      --text-primary: #f1f5f9;
-      --text-secondary: #94a3b8;
-      --border-color: rgba(148, 163, 184, 0.15);
-      --shadow-lg: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
-      --shadow-glass: 0 4px 24px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-      --radius-lg: 16px;
-      --radius-md: 12px;
-      --radius-sm: 8px;
-      --transition-fluid: cubic-bezier(0.16, 1, 0.3, 1);
-      --transition-base: 250ms var(--transition-fluid);
-      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
-      --container-max: 1200px;
-      --section-padding: clamp(4rem, 8vw, 6rem);
-      --telegram-bg: #17212b;
-      --telegram-user: #2b5278;
-      --telegram-agent: #182533;
-      --telegram-accent: #5288c1;
-      --ton-accent: #0098ea;
+      --bg:            #0a0e0c;
+      --bg-raised:     #0e1311;
+      --ink:           #ecefea;
+      --ink-dim:       #8b968f;
+      --ink-faint:     #4d564f;
+      --mint:          #8fe2bb;
+      --mint-soft:     rgba(143, 226, 187, 0.14);
+      --hairline:      rgba(236, 239, 234, 0.10);
+      --hairline-strong: rgba(236, 239, 234, 0.22);
+
+      --font-display: 'Bodoni Moda', 'Iowan Old Style', 'Times New Roman', serif;
+      --font-body:    'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --fs-hero:    clamp(3.1rem, 10vw, 8rem);
+      --fs-h2:      clamp(2.1rem, 5.2vw, 3.75rem);
+      --fs-h3:      clamp(1.4rem, 3vw, 2rem);
+      --fs-body-lg: clamp(1.05rem, 1.4vw, 1.25rem);
+      --fs-body:    1.0625rem;
+      --fs-small:   0.875rem;
+      --fs-eyebrow: 0.75rem;
+
+      --container: 1280px;
+      --gutter: clamp(1.5rem, 5vw, 4rem);
+      --section-pad: clamp(5rem, 11vw, 9rem);
+
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --t-fast: 200ms var(--ease);
+      --t-base: 420ms var(--ease);
     }
 
     @media (prefers-reduced-motion: reduce) {
-      :root { --transition-base: 0ms; }
-      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      background: var(--bg-primary);
-      color: var(--text-primary);
+      background: var(--bg);
+      color: var(--ink);
       font-family: var(--font-body);
+      font-weight: 400;
       line-height: 1.6;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
-    img, picture, video, canvas, svg { display: block; max-width: 100%; }
+    img, svg { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
-    button { font: inherit; background: none; border: none; cursor: pointer; }
-    input, textarea { font: inherit; }
-    :focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 2px; }
+    button { font: inherit; background: none; border: none; cursor: pointer; color: inherit; }
+    ::selection { background: var(--mint-soft); color: var(--ink); }
+    :focus-visible { outline: 2px solid var(--mint); outline-offset: 3px; }
 
-    /* ===== UTILITIES ===== */
-    .container { width: 100%; max-width: var(--container-max); margin-inline: auto; padding-inline: clamp(1.5rem, 4vw, 2rem); }
-    .section { padding-block: var(--section-padding); }
-    .glass {
-      background: var(--bg-surface);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-glass);
-    }
-    .mono { font-family: var(--font-mono); font-size: 0.95em; }
-    .accent { color: var(--accent-primary); }
-    .accent-secondary { color: var(--accent-secondary); }
-    .text-gradient {
-      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
+    .container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-    .badge {
-      display: inline-flex; align-items: center; gap: 0.35rem;
-      padding: 0.25rem 0.6rem; border-radius: 999px;
-      font-size: 0.75rem; font-weight: 500; font-family: var(--font-mono);
-      background: rgba(99, 102, 241, 0.15); color: var(--accent-primary);
-      border: 1px solid rgba(99, 102, 241, 0.3);
-    }
-    .badge svg { width: 12px; height: 12px; }
-    .badge.ton {
-      background: rgba(0, 152, 234, 0.15);
-      color: var(--ton-accent);
-      border-color: rgba(0, 152, 234, 0.3);
-    }
-    .badge.aur {
-      background: rgba(15, 15, 15, 0.3);
-      color: #f1f5f9;
-      border-color: rgba(255, 255, 255, 0.2);
-    }
 
-    /* ===== HEADER ===== */
+    .eyebrow {
+      display: block;
+      font-family: var(--font-body);
+      font-size: var(--fs-eyebrow);
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--mint);
+      margin-bottom: 1.25rem;
+    }
+    h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.05; letter-spacing: -0.01em; }
+    .section-heading { font-size: var(--fs-h2); max-width: 22ch; }
+    .section-intro { color: var(--ink-dim); font-size: var(--fs-body-lg); max-width: 46ch; margin-top: 1.25rem; }
+    .section-head { margin-bottom: clamp(3rem, 6vw, 5rem); }
+
+    /* underline-on-hover text link, used everywhere instead of buttons */
+    .text-link {
+      display: inline-flex; align-items: center; gap: 0.4em;
+      position: relative; font-weight: 500;
+      padding-bottom: 0.15em;
+    }
+    .text-link::after {
+      content: ''; position: absolute; left: 0; bottom: 0; height: 1px; width: 100%;
+      background: currentColor; opacity: 0.3; transition: opacity var(--t-fast), background var(--t-fast);
+    }
+    .text-link:hover::after { opacity: 1; background: var(--mint); }
+    .text-link:hover { color: var(--mint); }
+    .text-link svg { width: 0.85em; height: 0.85em; flex-shrink: 0; transition: transform var(--t-fast); }
+    .text-link:hover svg { transform: translate(2px, -2px); }
+
+    /* =========================================================
+       MOTION — one deliberate moment (hero entrance), nothing else
+       ========================================================= */
+    @keyframes riseIn { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-name span,
+    .hero-name em,
+    .hero-role,
+    .scroll-cue { animation: riseIn 900ms var(--ease) both; }
+    .hero-name span { animation-delay: 40ms; }
+    .hero-name em   { animation-delay: 160ms; }
+    .hero-role      { animation-delay: 340ms; }
+    .scroll-cue     { animation-delay: 560ms; }
+
+    /* =========================================================
+       HEADER
+       ========================================================= */
     header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding-block: 1rem;
-      transition: background var(--transition-base), backdrop-filter var(--transition-base);
+      position: fixed; inset-inline: 0; top: 0; z-index: 100;
+      padding-block: 1.4rem;
+      border-bottom: 1px solid transparent;
+      transition: background var(--t-base), border-color var(--t-base);
     }
     header.scrolled {
-      background: rgba(10, 14, 20, 0.85);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border-color);
+      background: rgba(10, 14, 12, 0.92);
+      border-bottom-color: var(--hairline);
     }
-    .header-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 1.5rem;
-    }
-    .logo {
-      font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em;
-      display: flex; align-items: center; gap: 0.5rem;
-    }
-    .logo-mark {
-      width: 28px; height: 28px; border-radius: 8px;
-      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-      display: grid; place-items: center;
-      font-family: var(--font-mono); font-size: 0.85rem; font-weight: 600;
-    }
-    nav ul {
-      display: flex; gap: clamp(1rem, 3vw, 2rem); list-style: none;
-    }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .wordmark { display: flex; align-items: center; gap: 0.6rem; font-weight: 600; font-size: 1.05rem; letter-spacing: 0.04em; }
+    .wordmark img { width: 20px; height: 20px; opacity: 0.9; }
+
+    nav ul { display: flex; gap: clamp(1.25rem, 3vw, 2.25rem); list-style: none; }
     nav a {
-      font-weight: 500; font-size: 0.95rem; color: var(--text-secondary);
-      padding: 0.5rem 0; position: relative; transition: color var(--transition-base);
+      font-size: 0.9rem; color: var(--ink-dim); position: relative; padding-block: 0.25rem;
+      transition: color var(--t-fast);
     }
-    nav a:hover, nav a[aria-current="page"] { color: var(--text-primary); }
+    nav a:hover { color: var(--ink); }
     nav a::after {
-      content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px;
-      background: var(--accent-primary); transition: width var(--transition-base);
-      border-radius: 2px;
+      content: ''; position: absolute; left: 0; bottom: -2px; width: 0; height: 1px;
+      background: var(--mint); transition: width var(--t-fast);
     }
-    nav a:hover::after, nav a[aria-current="page"]::after { width: 100%; }
+    nav a:hover::after { width: 100%; }
 
     .nav-toggle { display: none; flex-direction: column; gap: 5px; padding: 0.5rem; }
-    .nav-toggle span {
-      width: 24px; height: 2px; background: var(--text-primary);
-      border-radius: 2px; transition: transform var(--transition-base), opacity var(--transition-base);
-    }
+    .nav-toggle span { width: 22px; height: 1px; background: var(--ink); transition: transform var(--t-fast), opacity var(--t-fast); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
-    /* ===== HERO SECTION ===== */
+    /* =========================================================
+       HERO — pure typography, nothing else
+       ========================================================= */
     #hero {
-      min-height: 100vh; display: grid; place-items: center;
-      position: relative; overflow: hidden; padding-top: 4rem;
+      min-height: 100svh; display: flex; flex-direction: column; justify-content: center;
+      padding-top: 6rem; position: relative;
     }
-    .hero-content {
-      position: relative; z-index: 2; text-align: center; max-width: 700px;
-      padding-inline: 1rem;
+    .hero-name {
+      font-size: var(--fs-hero);
+      display: flex; flex-direction: column;
     }
-    .hero-title {
-      font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 700; line-height: 1.05;
-      letter-spacing: -0.03em; margin-bottom: 1.25rem;
+    .hero-name em { font-style: italic; font-weight: 400; color: var(--ink-dim); }
+    .hero-role {
+      margin-top: clamp(1.5rem, 3vw, 2.25rem);
+      font-family: var(--font-body); font-weight: 400;
+      font-size: clamp(1rem, 1.6vw, 1.25rem);
+      color: var(--ink-dim);
+      max-width: 42ch;
     }
-    .hero-subtitle {
-      font-size: clamp(1.1rem, 2.5vw, 1.35rem); color: var(--text-secondary);
-      margin-bottom: 2rem; max-width: 600px; margin-inline: auto;
-    }
-    .hero-cta {
-      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-      margin-top: 1.5rem;
-    }
-    .btn {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.85rem 1.5rem; border-radius: var(--radius-md);
-      font-weight: 500; transition: all var(--transition-base);
-      border: 1px solid transparent;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-      color: white; box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(99, 102, 241, 0.6); }
-    .btn-outline {
-      background: transparent; border-color: var(--border-color); color: var(--text-primary);
-    }
-    .btn-outline:hover { background: var(--bg-surface-hover); border-color: var(--accent-primary); }
+    .hero-role .mark { color: var(--mint); }
 
-    #canvas-container {
-      position: absolute; inset: 0; z-index: 1; pointer-events: none;
-      opacity: 0.9; transition: opacity var(--transition-base);
+    .scroll-cue {
+      position: absolute; bottom: clamp(1.5rem, 4vw, 3rem); left: var(--gutter);
+      display: flex; align-items: center; gap: 0.75rem;
+      font-size: var(--fs-eyebrow); letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-dim);
     }
-    #canvas-container.hidden { opacity: 0; }
-
-    .scroll-indicator {
-      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-      color: var(--text-secondary); font-size: 0.85rem;
+    .scroll-cue .line { position: relative; width: 28px; height: 1px; background: var(--ink-faint); overflow: hidden; }
+    .scroll-cue .line::after {
+      content: ''; position: absolute; inset: 0; background: var(--mint);
+      transform: scaleX(0); transform-origin: left;
+      animation: cueSlide 2.6s ease-in-out infinite;
     }
-    .scroll-indicator::after {
-      content: ''; width: 1px; height: 40px; background: linear-gradient(to bottom, var(--accent-primary), transparent);
-      animation: scrollPulse 2s ease-in-out infinite;
+    @keyframes cueSlide {
+      0%   { transform: scaleX(0); transform-origin: left; }
+      45%  { transform: scaleX(1); transform-origin: left; }
+      55%  { transform: scaleX(1); transform-origin: right; }
+      100% { transform: scaleX(0); transform-origin: right; }
     }
-    @keyframes scrollPulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
 
-    /* ===== AI FOCUS SECTION ===== */
-    #ai-focus { background: linear-gradient(180deg, transparent, rgba(15, 20, 30, 0.5)); }
-    .section-header { text-align: center; max-width: 700px; margin-inline: auto; margin-bottom: 3rem; }
-    .section-title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; margin-bottom: 1rem; }
-    .section-desc { color: var(--text-secondary); font-size: 1.1rem; }
+    /* =========================================================
+       SHARED: eyebrow + heading block used to open every section
+       ========================================================= */
+    section.block { padding-block: var(--section-pad); border-top: 1px solid var(--hairline); }
 
-    .project-spotlight {
-      display: grid; gap: 2.5rem; align-items: center;
+    /* =========================================================
+       FLAGSHIP — rika-agent
+       ========================================================= */
+    .flagship-grid {
+      display: grid; gap: clamp(2.5rem, 5vw, 4rem);
       grid-template-columns: 1fr;
     }
-    @media (min-width: 900px) {
-      .project-spotlight { grid-template-columns: 1.1fr 0.9fr; }
+    @media (min-width: 980px) {
+      .flagship-grid { grid-template-columns: 1.05fr 0.95fr; align-items: start; }
     }
-    .spotlight-content h3 { font-size: 1.5rem; margin-bottom: 1rem; }
-    .spotlight-content p { color: var(--text-secondary); margin-bottom: 1.5rem; }
-    .features-grid {
-      display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      margin: 1.5rem 0;
-    }
-    .feature-item {
-      display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.95rem;
-    }
-    .feature-item::before {
-      content: ''; width: 6px; height: 6px; border-radius: 50%;
-      background: var(--accent-secondary); margin-top: 0.45rem; flex-shrink: 0;
-    }
-    .spotlight-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
+    .flagship-copy p.lede { font-size: var(--fs-body-lg); color: var(--ink-dim); margin-bottom: 2rem; max-width: 56ch; }
 
-    .spotlight-visual {
-      position: relative; aspect-ratio: 4/3; border-radius: var(--radius-lg);
-      overflow: hidden; display: grid; place-items: center;
-      background: radial-gradient(1200px circle at 30% 20%, rgba(99, 102, 241, 0.15), transparent 40%),
-                  radial-gradient(800px circle at 80% 70%, rgba(34, 211, 238, 0.1), transparent 50%),
-                  var(--bg-surface);
-      border: 1px solid var(--border-color);
+    .capability-list { border-top: 1px solid var(--hairline); margin-bottom: 2.25rem; }
+    .capability-row {
+      display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+      gap: 1rem 2rem; padding-block: 1rem; border-bottom: 1px solid var(--hairline);
     }
-    .spotlight-visual::before {
-      content: ''; position: absolute; inset: 0;
-      background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.02) 10px, rgba(255,255,255,0.02) 20px);
-      pointer-events: none;
+    .capability-row dt { font-weight: 600; font-size: var(--fs-body); }
+    .capability-row dd { color: var(--ink-dim); font-size: var(--fs-small); }
+
+    .flagship-actions { display: flex; flex-wrap: wrap; gap: 1.75rem; }
+
+    /* =========================================================
+       TELEGRAM CHAT MOCKUP — authentic 2024 redesign
+       Isolated color tokens so they don't bleed into the portfolio palette.
+       ========================================================= */
+    .tg-mockup {
+      display: flex; flex-direction: column;
+      height: clamp(500px, 64vh, 580px);
+      max-width: 370px; width: 100%; margin-inline: auto;
+      border-radius: 18px; overflow: hidden;
+      font-family: -apple-system, 'Segoe UI', Roboto, sans-serif;
+      --tg-bg:       #17212b;
+      --tg-wp:       #0d1821;
+      --tg-header:   #17212b;
+      --tg-in:       #182533;
+      --tg-out:      #2b5440;
+      --tg-text:     #f0f2f0;
+      --tg-dim:      rgba(240,242,240,0.48);
+      --tg-green:    #4fbc8e;
+      --tg-sep:      rgba(255,255,255,0.07);
+      --tg-input:    #0f1923;
+      --tg-icon:     rgba(255,255,255,0.42);
+      --tg-r:        14px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.55);
     }
 
-    /* ===== TELEGRAM CHAT MOCKUP ===== */
-    .telegram-chat {
-      width: 92%; max-width: 420px; font-family: var(--font-body);
-      background: var(--telegram-bg); border-radius: 14px;
-      box-shadow: 0 12px 50px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.08);
-      overflow: hidden; display: flex; flex-direction: column;
+    /* ── Status bar ── */
+    .tg-sb {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 7px 18px 5px; background: var(--tg-header);
+      font-size: 12px; font-weight: 600; color: var(--tg-text); line-height: 1;
+      letter-spacing: 0;
     }
-    .tg-header {
-      display: flex; align-items: center; gap: 0.75rem; padding: 0.85rem 1rem;
-      background: rgba(25, 35, 48, 0.95); border-bottom: 1px solid rgba(255,255,255,0.06);
+    .tg-sb-right { display: flex; align-items: center; gap: 4px; }
+    .tg-sb-right svg { width: 14px; height: 14px; fill: var(--tg-text); }
+
+    /* ── Chat header ── */
+    .tg-head {
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 10px 6px 6px; background: var(--tg-header);
+      border-bottom: 1px solid var(--tg-sep);
     }
-    .tg-avatar {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-      display: grid; place-items: center; font-weight: 600; font-size: 0.9rem;
+    .tg-head-back { display: flex; align-items: center; justify-content: center; padding: 4px 6px 4px 2px; color: var(--tg-green); flex-shrink: 0; }
+    .tg-head-back svg { width: 22px; height: 22px; fill: currentColor; }
+    .tg-head-av {
+      width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(145deg, var(--tg-green) 0%, #237a52 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 14px; color: #fff; letter-spacing: -0.02em;
     }
-    .tg-info { display: flex; flex-direction: column; }
-    .tg-name { font-weight: 600; font-size: 0.95rem; }
-    .tg-status { font-size: 0.75rem; color: var(--accent-secondary); display: flex; align-items: center; gap: 0.3rem; }
-    .tg-status::before {
-      content: ''; width: 6px; height: 6px; border-radius: 50%;
-      background: #22c55e; display: inline-block;
+    .tg-head-info { flex: 1; min-width: 0; }
+    .tg-head-name { display: block; font-weight: 600; font-size: 15px; color: var(--tg-text); line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .tg-head-status { display: block; font-size: 12.5px; color: var(--tg-green); line-height: 1.3; }
+    .tg-head-status.typing::after { content: ''; animation: tgStatusDots 1.2s infinite; }
+    @keyframes tgStatusDots { 0% { content: ''; } 33% { content: '.'; } 66% { content: '..'; } 100% { content: '...'; } }
+    .tg-head-actions { display: flex; }
+    .tg-head-actions button { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--tg-icon); }
+    .tg-head-actions button svg { width: 18px; height: 18px; fill: currentColor; }
+
+    /* ── Messages scroll area ── */
+    .tg-msgs {
+      flex: 1; overflow-y: auto; overflow-x: hidden;
+      padding: 8px 6px 4px;
+      background-color: var(--tg-wp);
+      background-image: radial-gradient(circle, rgba(255,255,255,0.022) 1.2px, transparent 1.2px);
+      background-size: 26px 26px;
+      scroll-behavior: smooth;
     }
-    .tg-messages {
-      flex: 1; padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem;
-      max-height: 280px; overflow-y: auto; scrollbar-width: thin;
-      scrollbar-color: rgba(255,255,255,0.2) transparent;
+    .tg-msgs::-webkit-scrollbar { width: 3px; }
+    .tg-msgs::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+
+    /* ── Date separator ── */
+    .tg-datesep { display: flex; align-items: center; justify-content: center; margin: 6px 0 8px; }
+    .tg-datesep span {
+      background: rgba(0,0,0,0.42); color: rgba(255,255,255,0.68);
+      font-size: 12px; font-weight: 500; padding: 4px 11px; border-radius: 99px;
     }
-    .tg-messages::-webkit-scrollbar { width: 4px; }
-    .tg-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
-    
-    .tg-message {
-      max-width: 85%; padding: 0.65rem 0.9rem; border-radius: 14px;
-      font-size: 0.9rem; line-height: 1.4; position: relative;
-      animation: messageSlide 0.3s ease-out forwards; opacity: 0; transform: translateY(8px);
+
+    /* ── Message rows ── */
+    .tg-row { display: flex; margin-bottom: 2px; align-items: flex-end; }
+    .tg-row.out { justify-content: flex-end; padding-right: 4px; }
+    .tg-row.in  { justify-content: flex-start; padding-left: 4px; }
+    @keyframes tgIn { from { opacity: 0; transform: translateY(7px) scale(0.97); } to { opacity: 1; transform: none; } }
+    .tg-row { animation: tgIn 200ms ease both; }
+
+    /* ── Small avatar for incoming ── */
+    .tg-row-av {
+      width: 28px; height: 28px; border-radius: 50%; margin-right: 5px; flex-shrink: 0;
+      background: linear-gradient(145deg, var(--tg-green) 0%, #237a52 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 11px; color: #fff;
     }
-    @keyframes messageSlide { to { opacity: 1; transform: translateY(0); } }
-    
-    .tg-message.user {
-      align-self: flex-end; background: var(--telegram-user);
-      border-bottom-right-radius: 4px;
+    .tg-row-av.hide { visibility: hidden; }
+
+    /* ── Bubble ── */
+    .tg-bub {
+      position: relative; max-width: 80%;
+      padding: 7px 10px 4px; border-radius: var(--tg-r);
+      font-size: 14px; line-height: 1.45; color: var(--tg-text);
+      word-break: break-word;
     }
-    .tg-message.agent {
-      align-self: flex-start; background: var(--telegram-agent);
-      border-bottom-left-radius: 4px; border: 1px solid rgba(82, 136, 193, 0.3);
+    .tg-row.in  .tg-bub { background: var(--tg-in);  border-bottom-left-radius:  4px; }
+    .tg-row.out .tg-bub { background: var(--tg-out); border-bottom-right-radius: 4px; }
+    /* Tails */
+    .tg-row.in  .tg-bub::before {
+      content: ''; position: absolute; bottom: 0; left: -7px;
+      width: 8px; height: 13px; background: var(--tg-in);
+      clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
     }
-    .tg-message .time {
-      display: block; font-size: 0.7rem; color: rgba(255,255,255,0.6);
-      margin-top: 0.3rem; text-align: right;
+    .tg-row.out .tg-bub::after {
+      content: ''; position: absolute; bottom: 0; right: -7px;
+      width: 8px; height: 13px; background: var(--tg-out);
+      clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
     }
-    .tg-message.agent .time { color: rgba(255,255,255,0.5); }
-    
-    .tg-typing {
-      align-self: flex-start; display: flex; gap: 3px; padding: 0.75rem 1rem;
-      background: var(--telegram-agent); border-radius: 14px;
-      border-bottom-left-radius: 4px; border: 1px solid rgba(82, 136, 193, 0.3);
+    /* Consecutive / no-tail */
+    .tg-row.notail .tg-bub { border-radius: var(--tg-r); }
+    .tg-row.notail .tg-bub::before,
+    .tg-row.notail .tg-bub::after { display: none; }
+
+    /* ── Monospace block inside bubble ── */
+    .tg-code {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 12px; line-height: 1.65; white-space: pre-wrap;
+      background: rgba(0,0,0,0.28); border-radius: 6px;
+      padding: 7px 9px; margin: 5px 0 2px;
+      color: rgba(255,255,255,0.82);
     }
-    .tg-typing span {
-      width: 6px; height: 6px; border-radius: 50%; background: var(--text-secondary);
-      animation: typingDot 1.4s infinite ease-in-out;
+
+    /* ── Meta (time + tick) ── */
+    .tg-meta {
+      display: flex; align-items: center; gap: 2px;
+      justify-content: flex-end; float: right;
+      margin-left: 8px; margin-top: 1px;
+      font-size: 11px; color: var(--tg-dim); line-height: 1;
     }
-    .tg-typing span:nth-child(2) { animation-delay: 0.2s; }
-    .tg-typing span:nth-child(3) { animation-delay: 0.4s; }
-    @keyframes typingDot { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-4px); } }
-    
-    .tg-footer {
-      padding: 0.75rem 1rem; border-top: 1px solid rgba(255,255,255,0.06);
-      display: flex; align-items: center; gap: 0.75rem;
+    .tg-tick svg { width: 16px; height: 9px; fill: none; stroke: var(--tg-green); stroke-width: 1.6px; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ── Typing indicator ── */
+    .tg-typing-row { display: flex; align-items: flex-end; padding-left: 4px; margin-bottom: 2px; }
+    .tg-typing-row .tg-row-av { margin-right: 5px; }
+    .tg-typing-bub {
+      position: relative; background: var(--tg-in);
+      border-radius: var(--tg-r) var(--tg-r) var(--tg-r) 4px;
+      padding: 11px 14px; display: flex; gap: 4px; align-items: center;
     }
+    .tg-typing-bub::before {
+      content: ''; position: absolute; bottom: 0; left: -7px;
+      width: 8px; height: 13px; background: var(--tg-in);
+      clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+    }
+    .tg-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.48); animation: tgDot 1.2s infinite ease-in-out; }
+    .tg-dot:nth-child(2) { animation-delay: 0.15s; }
+    .tg-dot:nth-child(3) { animation-delay: 0.30s; }
+    @keyframes tgDot { 0%, 60%, 100% { transform: scale(1); opacity: 0.4; } 30% { transform: scale(1.35); opacity: 1; } }
+
+    /* ── Input bar ── */
     .tg-input {
-      flex: 1; background: rgba(255,255,255,0.08); border: none;
-      border-radius: 20px; padding: 0.5rem 1rem; color: var(--text-primary);
-      font-size: 0.9rem; outline: none;
+      display: flex; align-items: center; gap: 5px;
+      padding: 6px 8px 9px; background: var(--tg-input);
+      border-top: 1px solid var(--tg-sep);
     }
-    .tg-input::placeholder { color: rgba(255,255,255,0.4); }
-    .tg-send {
-      width: 32px; height: 32px; border-radius: 50%;
-      background: var(--telegram-accent); display: grid; place-items: center;
-      transition: transform var(--transition-base);
+    .tg-input-menu {
+      display: flex; align-items: center; gap: 5px;
+      background: var(--tg-green); border-radius: 20px;
+      padding: 6px 10px; font-size: 13px; font-weight: 600; color: #fff; flex-shrink: 0;
     }
-    .tg-send:hover { transform: scale(1.05); }
-    .tg-send svg { width: 14px; height: 14px; fill: white; }
+    .tg-input-menu svg { width: 14px; height: 14px; fill: #fff; }
+    .tg-input-field {
+      flex: 1; background: rgba(255,255,255,0.06); border-radius: 20px;
+      padding: 8px 14px; font-size: 14px; color: rgba(255,255,255,0.28); cursor: default;
+    }
+    .tg-input-icon { width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; color: var(--tg-icon); flex-shrink: 0; }
+    .tg-input-icon svg { width: 22px; height: 22px; fill: currentColor; }
+    .tg-input-mic {
+      width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+      background: var(--tg-green); display: flex; align-items: center; justify-content: center;
+    }
+    .tg-input-mic svg { width: 20px; height: 20px; fill: #fff; }
 
-    /* ===== PROJECTS GRID ===== */
-    .projects-grid {
-      display: grid; gap: 1.5rem;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* =========================================================
+       PROJECTS — alternating asymmetric editorial blocks
+       ========================================================= */
+    .project-row {
+      display: grid; gap: clamp(2rem, 4vw, 3.5rem);
+      grid-template-columns: 1fr;
+      padding-block: clamp(3rem, 6vw, 4.5rem);
+      border-bottom: 1px solid var(--hairline);
     }
-    .project-card {
-      display: flex; flex-direction: column; gap: 1rem; padding: 1.5rem;
-      transition: transform var(--transition-base), box-shadow var(--transition-base);
-      position: relative; overflow: hidden;
+    .project-row:first-of-type { padding-top: 0; }
+    .project-row:last-of-type { border-bottom: none; }
+    @media (min-width: 900px) {
+      .project-row { grid-template-columns: 1fr 1fr; align-items: center; }
+      .project-row.flip .project-visual { order: 2; }
+      .project-row.flip .project-text { order: 1; }
     }
-    .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.6);
-      border-color: rgba(99, 102, 241, 0.4);
-    }
-    .project-card::before {
-      content: ''; position: absolute; inset: 0; z-index: -1;
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), transparent 50%);
-      opacity: 0; transition: opacity var(--transition-base);
-    }
-    .project-card:hover::before { opacity: 1; }
-    
-    .project-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
-    .project-title { font-weight: 600; font-size: 1.25rem; }
-    .project-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 0.4rem; }
-    .project-tech { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); }
-    .project-stats { display: flex; gap: 0.5rem; font-size: 0.75rem; color: var(--text-secondary); }
-    .project-stats .badge { padding: 0.2rem 0.5rem; font-size: 0.7rem; }
-    
-    .project-desc { color: var(--text-secondary); font-size: 0.95rem; flex-grow: 1; }
-    .project-links { display: flex; gap: 0.75rem; margin-top: auto; }
-    .link-icon {
-      width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center;
-      color: var(--text-secondary); transition: color var(--transition-base);
-    }
-    .link-icon:hover { color: var(--accent-primary); }
-    
-    .star-count {
-      display: inline-flex; align-items: center; gap: 0.25rem;
-      font-family: var(--font-mono); font-size: 0.8rem;
-    }
-    .star-count svg { width: 14px; height: 14px; fill: var(--text-secondary); }
-    .star-count.loading { opacity: 0.6; }
 
-    /* ===== SPONSOR SECTION ===== */
-    #sponsor { background: linear-gradient(180deg, rgba(15, 20, 30, 0.5), transparent); }
-    .sponsor-card {
-      max-width: 600px; margin-inline: auto; text-align: center;
-      padding: 2rem; display: flex; flex-direction: column; gap: 1.5rem;
+    .project-visual {
+      display: flex; align-items: center; justify-content: center;
+      min-height: clamp(160px, 22vw, 260px);
+      overflow: hidden;
     }
-    .sponsor-card p { color: var(--text-secondary); }
-    .ton-wallet {
-      background: rgba(0, 152, 234, 0.1);
-      border: 1px solid rgba(0, 152, 234, 0.3);
-      border-radius: var(--radius-md);
-      padding: 1rem; display: flex; align-items: center; justify-content: space-between;
-      gap: 1rem; flex-wrap: wrap;
+    .project-visual .ghost {
+      font-family: var(--font-display); font-weight: 600;
+      font-size: clamp(3.4rem, 11vw, 9rem); line-height: 0.85;
+      letter-spacing: -0.02em; text-align: center;
+      color: transparent; -webkit-text-stroke: 1.3px var(--ink-faint);
+      text-stroke: 1.3px var(--ink-faint);
+      transition: -webkit-text-stroke-color var(--t-base), text-stroke-color var(--t-base);
+      user-select: none;
     }
-    .ton-address {
-      font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-primary);
-      word-break: break-all; text-align: left; flex: 1; min-width: 200px;
-    }
-    .copy-btn {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      padding: 0.5rem 1rem; border-radius: var(--radius-sm);
-      background: var(--ton-accent); color: white; font-weight: 500;
-      transition: all var(--transition-base); border: none;
-    }
-    .copy-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 15px rgba(0, 152, 234, 0.4); }
-    .copy-btn:active { transform: translateY(0); }
-    .copy-btn.copied { background: #22c55e; }
-    .copy-btn svg { width: 16px; height: 16px; }
-    .qr-placeholder {
-      width: 120px; height: 120px; border-radius: 12px;
-      background: linear-gradient(135deg, rgba(0,152,234,0.2), rgba(34,211,238,0.15));
-      border: 2px dashed rgba(0, 152, 234, 0.4);
-      display: grid; place-items: center; color: var(--text-secondary);
-      font-size: 0.75rem; text-align: center; padding: 0.5rem;
-    }
-    .sponsor-note { font-size: 0.85rem; color: var(--text-secondary); }
+    .project-row:hover .ghost { -webkit-text-stroke-color: var(--mint); text-stroke-color: var(--mint); }
 
-    /* ===== PHILOSOPHY SECTION ===== */
-    #philosophy { background: linear-gradient(180deg, rgba(15, 20, 30, 0.5), transparent); }
-    .philosophy-grid {
-      display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      margin-top: 2rem;
-    }
-    .philosophy-item {
-      padding: 1.5rem; border-radius: var(--radius-md);
-      border: 1px solid var(--border-color);
-      transition: border-color var(--transition-base);
-    }
-    .philosophy-item:hover { border-color: var(--accent-primary); }
-    .philosophy-item h4 { font-weight: 600; margin-bottom: 0.75rem; font-size: 1.1rem; }
-    .philosophy-item p { color: var(--text-secondary); font-size: 0.95rem; }
+    .project-meta-line { display: flex; align-items: center; gap: 1.1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .project-tech { font-size: var(--fs-eyebrow); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim); }
+    .project-stars { display: inline-flex; align-items: center; gap: 0.35em; font-size: var(--fs-small); color: var(--ink-dim); }
+    .project-stars svg { width: 13px; height: 13px; fill: var(--ink-dim); }
+    .project-stars.is-loading { opacity: 0.45; }
 
-    /* ===== CONTACT SECTION ===== */
-    #contact { text-align: center; }
+    .project-text h3 { font-size: var(--fs-h3); margin-bottom: 0.9rem; }
+    .project-text p.desc { color: var(--ink-dim); font-size: var(--fs-body); max-width: 52ch; margin-bottom: 1.5rem; }
+    .project-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+    /* =========================================================
+       SPONSOR
+       ========================================================= */
+    .sponsor-grid { display: grid; gap: clamp(2rem, 4vw, 3rem); grid-template-columns: 1fr; }
+    @media (min-width: 860px) { .sponsor-grid { grid-template-columns: 1fr 1fr; align-items: center; } }
+    .sponsor-copy p { color: var(--ink-dim); font-size: var(--fs-body-lg); max-width: 46ch; }
+    .wallet-block { border-top: 1px solid var(--hairline-strong); padding-top: 1.5rem; }
+    .wallet-network { font-size: var(--fs-eyebrow); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 0.85rem; display: block; }
+    .wallet-address {
+      font-family: var(--font-body); font-size: clamp(0.85rem, 1.6vw, 1rem);
+      letter-spacing: 0.01em; word-break: break-all;
+      padding-bottom: 1rem; border-bottom: 1px solid var(--hairline);
+      margin-bottom: 1rem;
+    }
+    .copy-btn { display: inline-flex; align-items: center; gap: 0.5em; font-size: var(--fs-small); color: var(--mint); }
+    .copy-btn svg { width: 14px; height: 14px; }
+    .copy-btn.copied { color: var(--ink-dim); }
+
+    /* =========================================================
+       PHILOSOPHY
+       ========================================================= */
+    .principle-grid { display: grid; gap: clamp(2.5rem, 5vw, 3.5rem) clamp(2rem, 4vw, 4rem); grid-template-columns: 1fr; }
+    @media (min-width: 760px) { .principle-grid { grid-template-columns: 1fr 1fr; } }
+    .principle h3 { font-family: var(--font-body); font-weight: 600; font-size: 1.15rem; margin-bottom: 0.75rem; }
+    .principle p { color: var(--ink-dim); font-size: var(--fs-body); max-width: 48ch; }
+
+    /* =========================================================
+       CONTACT
+       ========================================================= */
+    #contact .section-heading { max-width: 22ch; }
+    .contact-body { display: grid; grid-template-columns: 1fr; gap: clamp(2rem, 4vw, 3rem); margin-top: clamp(2rem, 4vw, 3.5rem); }
+    @media (min-width: 860px) {
+      .contact-body { grid-template-columns: auto 1fr; align-items: end; gap: clamp(3rem, 7vw, 7rem); }
+    }
     .contact-email {
-      font-size: 1.1rem; margin: 1rem 0; display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.75rem 1.5rem; background: var(--bg-surface);
-      border: 1px solid var(--border-color); border-radius: var(--radius-md);
-      transition: all var(--transition-base);
+      font-family: var(--font-display); font-style: italic;
+      font-size: clamp(1.6rem, 3.8vw, 2.5rem);
+      display: inline-block;
+      border-bottom: 1px solid var(--hairline-strong);
+      padding-bottom: 0.35rem; transition: border-color var(--t-fast), color var(--t-fast);
+      white-space: nowrap;
     }
-    .contact-email:hover { border-color: var(--accent-primary); transform: translateY(-2px); }
-    .contact-email svg { width: 18px; height: 18px; }
-    
-    .contact-links {
-      display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
-      margin: 1.5rem 0;
-    }
-    .contact-link {
-      display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem;
-      border-radius: var(--radius-sm); border: 1px solid var(--border-color);
-      transition: all var(--transition-base); font-size: 0.9rem;
-    }
-    .contact-link:hover {
-      background: var(--bg-surface-hover); border-color: var(--accent-primary);
-      transform: translateY(-2px);
-    }
-    .contact-link svg { width: 18px; height: 18px; }
+    .contact-email:hover { color: var(--mint); border-color: var(--mint); }
+    .contact-secondary { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-note { color: var(--ink-dim); font-size: var(--fs-small); max-width: 36ch; margin-bottom: 0.5rem; }
 
-    /* ===== FOOTER SOCIAL BAR ===== */
-    .footer-social {
-      display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;
-      padding-block: 1rem; border-top: 1px solid var(--border-color);
-      margin-top: 2rem;
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+    footer { border-top: 1px solid var(--hairline); padding-block: clamp(3rem, 6vw, 5rem); }
+    .footer-echo {
+      font-family: var(--font-display); font-weight: 500; font-style: italic;
+      font-size: clamp(2.25rem, 9vw, 6rem); line-height: 0.95; letter-spacing: -0.01em;
+      color: var(--ink-faint); margin-bottom: clamp(2.5rem, 5vw, 4rem);
     }
-    .social-link {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      padding: 0.4rem 0.8rem; border-radius: var(--radius-sm);
-      font-size: 0.85rem; color: var(--text-secondary);
-      transition: all var(--transition-base); border: 1px solid transparent;
+    .footer-bottom {
+      display: flex; flex-wrap: wrap; gap: 1.5rem 2rem; align-items: center; justify-content: space-between;
+      padding-top: 2rem; border-top: 1px solid var(--hairline);
     }
-    .social-link:hover {
-      color: var(--text-primary); border-color: var(--accent-primary);
-      background: var(--bg-surface-hover);
-    }
-    .social-link svg { width: 16px; height: 16px; }
-    .social-link.mono { font-family: var(--font-mono); }
+    .footer-social { display: flex; flex-wrap: wrap; gap: 1.5rem; list-style: none; }
+    .footer-social a { display: inline-flex; align-items: center; gap: 0.5em; font-size: var(--fs-small); color: var(--ink-dim); transition: color var(--t-fast); }
+    .footer-social a:hover { color: var(--mint); }
+    .footer-social svg { width: 15px; height: 15px; fill: currentColor; }
+    .copyright { font-size: var(--fs-small); color: var(--ink-faint); }
 
-    footer {
-      padding-block: 1.5rem; text-align: center; color: var(--text-secondary);
-      font-size: 0.85rem;
-    }
-
-    /* ===== ANIMATIONS ===== */
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    .animate-float { animation: float 6s ease-in-out infinite; }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
-    }
-    .animate-pulse { animation: pulse 2s ease-in-out infinite; }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
+    /* =========================================================
+       RESPONSIVE / MOBILE NAV
+       ========================================================= */
+    @media (max-width: 760px) {
       .nav-toggle { display: flex; }
       nav ul {
-        position: fixed; top: 70px; left: 0; right: 0; background: var(--bg-primary);
-        flex-direction: column; padding: 1.5rem; gap: 1rem; border-top: 1px solid var(--border-color);
-        transform: translateY(-150%); transition: transform var(--transition-base);
-        z-index: 99;
+        position: fixed; top: 64px; left: 0; right: 0; z-index: 99;
+        background: var(--bg); border-top: 1px solid var(--hairline);
+        flex-direction: column; padding: 1.5rem var(--gutter); gap: 1.1rem;
+        transform: translateY(-130%); opacity: 0; transition: transform var(--t-base), opacity var(--t-base);
       }
-      nav ul.active { transform: translateY(0); }
-      .hero-title { font-size: 2.5rem; }
-      .project-spotlight { text-align: center; }
-      .spotlight-actions { justify-content: center; }
-      .telegram-chat { width: 95%; }
-      .ton-wallet { flex-direction: column; text-align: center; }
-      .ton-address { text-align: center; }
-    }
-
-    /* ===== FALLBACK FOR NO-WEBGL ===== */
-    .no-webgl #canvas-container { display: none; }
-    .no-webgl #hero::after {
-      content: ''; position: absolute; inset: 0; z-index: 1;
-      background: radial-gradient(600px circle at 70% 30%, rgba(99, 102, 241, 0.12), transparent 60%),
-                  radial-gradient(400px circle at 20% 80%, rgba(34, 211, 238, 0.08), transparent 50%);
-      animation: float 8s ease-in-out infinite;
-      pointer-events: none;
+      nav ul.is-open { transform: translateY(0); opacity: 1; }
+      .capability-row { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -528,19 +530,19 @@
 
   <header>
     <div class="container header-inner">
-      <a href="#" class="logo" aria-label="piratheon home">
-        <img src="https://raw.githubusercontent.com/piratheon/piratheon/refs/heads/main/.github/piratheon_eye.svg" height="" width="44" type="image/svg+xml"/>
+      <a href="#hero" class="wordmark" aria-label="Chafiq El Ibrahimi — home">
+        <img src="https://raw.githubusercontent.com/piratheon/piratheon/refs/heads/main/.github/piratheon_eye.svg" alt="" width="20" height="20" />
         <span>PIRΛTHΞΘN</span>
       </a>
-      
+
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
         <span></span><span></span><span></span>
       </button>
-      
+
       <nav>
         <ul id="nav-menu">
-          <li><a href="#ai-focus">AI Focus</a></li>
-          <li><a href="#projects">Projects</a></li>
+          <li><a href="#ai-focus">Flagship</a></li>
+          <li><a href="#projects">Work</a></li>
           <li><a href="#sponsor">Sponsor</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -549,728 +551,596 @@
   </header>
 
   <main id="main">
+    <!-- ============================= HERO ============================= -->
     <section id="hero">
-      <div id="canvas-container" aria-hidden="true"></div>
-      
-      <div class="hero-content">
-        <h1 class="hero-title">
-          <span class="text-gradient">Chafiq El Ibrahimi</span><br />
-          System-Oriented Development
+      <div class="container">
+        <h1 class="hero-name">
+          <span>Chafiq</span>
+          <em>El Ibrahimi</em>
         </h1>
-        <p class="hero-subtitle">
-          Linux-focused developer and ethical security researcher building privacy-respecting tooling, agentic AI systems, and low-level automation workflows.
+        <p class="hero-role">
+          Systems-oriented developer and ethical security researcher building <span class="mark">privacy-respecting</span> tooling, self-hosted agentic AI, and low-level automation.
         </p>
-        <div class="hero-cta">
-          <a href="#ai-focus" class="btn btn-primary">Explore rika-agent</a>
-          <a href="https://github.com/piratheon" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-            View GitHub
-          </a>
-        </div>
       </div>
-      
-      <div class="scroll-indicator">
-        <span>Scroll</span>
-      </div>
+      <span class="scroll-cue">Scroll <span class="line"></span></span>
     </section>
 
-    <section id="ai-focus" class="section">
+    <!-- ============================= FLAGSHIP ============================= -->
+    <section id="ai-focus" class="block">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Agentic AI Focus</h2>
-          <p class="section-desc">Self-hosted, privacy-first AI agents that run on your infrastructure with full control and transparency.</p>
+        <div class="section-head">
+          <span class="eyebrow">Flagship project</span>
+          <h2 class="section-heading">An assistant that lives on your machine — not someone else's cloud.</h2>
         </div>
-        
-        <div class="project-spotlight">
-          <div class="spotlight-content">
-            <h3>rika-agent</h3>
-            <p>The elite, customizable agentic AI system — a persistent, self-hosted assistant that integrates with your shell, file system, and network. Designed for developers who demand control, privacy, and extensibility.</p>
-            
-            <div class="features-grid">
-              <div class="feature-item">JSON function calling with native provider APIs</div>
-              <div class="feature-item">Background system monitoring with zero-token idle</div>
-              <div class="feature-item">Three-tier code sandbox (RestrictedPython to Docker)</div>
-              <div class="feature-item">AES-256-GCM encrypted key storage</div>
-              <div class="feature-item">Telegram-native UX with LiveBubble feedback</div>
-              <div class="feature-item">Ollama and G4F support for local/free inference</div>
-            </div>
-            
-            <div class="spotlight-actions">
-              <a href="https://github.com/piratheon/rika-agent" target="_blank" rel="noopener noreferrer" class="btn btn-outline mono">
-                github.com/piratheon/rika-agent
+
+        <div class="flagship-grid">
+          <div class="flagship-copy">
+            <p class="lede">rika-agent is a persistent, self-hosted agentic AI system that integrates with your shell, file system, and network — built for developers who want control, privacy, and extensibility over a hosted black box.</p>
+
+            <dl class="capability-list">
+              <div class="capability-row">
+                <dt>Function calling</dt>
+                <dd>JSON function calling against native provider APIs — no middleware lock-in.</dd>
+              </div>
+              <div class="capability-row">
+                <dt>Monitoring</dt>
+                <dd>Background system monitoring with zero-token idle; alerts only when something needs attention.</dd>
+              </div>
+              <div class="capability-row">
+                <dt>Sandboxing</dt>
+                <dd>Three-tier code execution sandbox, from RestrictedPython up to full Docker isolation.</dd>
+              </div>
+              <div class="capability-row">
+                <dt>Key storage</dt>
+                <dd>AES-256-GCM encrypted key storage at rest.</dd>
+              </div>
+              <div class="capability-row">
+                <dt>Interface</dt>
+                <dd>Native Telegram UX with live feedback as actions run.</dd>
+              </div>
+              <div class="capability-row">
+                <dt>Inference</dt>
+                <dd>Ollama and G4F support for local or zero-cost model access.</dd>
+              </div>
+            </dl>
+
+            <div class="flagship-actions">
+              <a href="https://github.com/piratheon/rika-agent" target="_blank" rel="noopener noreferrer" class="text-link">
+                View source
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
               </a>
-              <a href="https://github.com/piratheon/rika-agent#quick-start" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                Quick Start Guide
+              <a href="https://github.com/piratheon/rika-agent#quick-start" target="_blank" rel="noopener noreferrer" class="text-link">
+                Quick-start guide
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
               </a>
             </div>
           </div>
-          
-          <div class="spotlight-visual glass">
-            <div class="telegram-chat animate-float" role="region" aria-label="rika-agent Telegram chat demo">
-              <div class="tg-header">
-                <div class="tg-avatar">R</div>
-                <div class="tg-info">
-                  <span class="tg-name">rika-agent</span>
-                  <span class="tg-status">online</span>
-                </div>
+
+          <div class="tg-mockup" role="region" aria-label="Aria — rika-agent live session">
+
+            <!-- Status bar -->
+            <div class="tg-sb">
+              <span>9:41</span>
+              <div class="tg-sb-right">
+                <svg viewBox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4zM13 18h-2v-2h2v2zm0-4h-2V9h2v5z"/></svg>
               </div>
-              <div class="tg-messages" id="tg-messages">
-                <!-- Messages injected by JS -->
+            </div>
+
+            <!-- Chat header -->
+            <div class="tg-head">
+              <div class="tg-head-back" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
               </div>
-              <div class="tg-footer">
-                <input type="text" class="tg-input mono" placeholder="Type a command..." disabled aria-label="Chat input (demo)" />
-                <button class="tg-send" aria-label="Send message" disabled>
-                  <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+              <div class="tg-head-av">A</div>
+              <div class="tg-head-info">
+                <span class="tg-head-name">Aria</span>
+                <span class="tg-head-status" id="tg-status-txt">bot</span>
+              </div>
+              <div class="tg-head-actions">
+                <button aria-label="Search">
+                  <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                </button>
+                <button aria-label="More options">
+                  <svg viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
                 </button>
               </div>
             </div>
+
+            <!-- Messages area -->
+            <div class="tg-msgs" id="tg-msgs"></div>
+
+            <!-- Input bar -->
+            <div class="tg-input">
+              <div class="tg-input-menu" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+                Menu
+              </div>
+              <div class="tg-input-field" aria-hidden="true">Message</div>
+              <div class="tg-input-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v10.5c0 .55-.45 1-1 1s-1-.45-1-1V6H10v9.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z"/></svg>
+              </div>
+              <div class="tg-input-mic" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
     </section>
 
-    <section id="projects" class="section">
+    <!-- ============================= PROJECTS ============================= -->
+    <section id="projects" class="block">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Featured Projects</h2>
-          <p class="section-desc">Tools built for control, privacy, and technical depth — from terminal utilities to desktop applications.</p>
+        <div class="section-head">
+          <span class="eyebrow">Selected work</span>
+          <h2 class="section-heading">Other tools I've built.</h2>
+          <p class="section-intro">Terminal utilities, desktop applications, and browser tools — built for control and technical depth rather than convenience.</p>
         </div>
-        
-        <div class="projects-grid">
-          <!-- rika-agent -->
-          <article class="project-card glass" data-repo="rika-agent">
-            <div class="project-header">
-              <h3 class="project-title">rika-agent</h3>
-              <div class="project-meta">
-                <span class="project-tech mono">Python • Telegram</span>
-                <div class="project-stats">
-                  <span class="badge star-count loading" data-target="0">
-                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                    <span class="stars">0</span>
-                  </span>
-                  <span class="badge" data-language>Python</span>
-                </div>
-              </div>
-            </div>
-            <p class="project-desc">
-              Self-hosted Telegram agentic AI with system monitoring, code execution sandboxing, and encrypted key management. Built for privacy-first automation.
-            </p>
-            <div class="project-links">
-              <a href="https://github.com/piratheon/rika-agent" target="_blank" rel="noopener noreferrer" class="link-icon" aria-label="rika-agent on GitHub">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-              </a>
-              <a href="https://github.com/piratheon/rika-agent#quick-start" target="_blank" rel="noopener noreferrer" class="link-icon" aria-label="Quick start guide">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
-              </a>
-            </div>
-          </article>
-          
+
+        <div class="project-list">
           <!-- ori -->
-          <article class="project-card glass" data-repo="ori">
-            <div class="project-header">
-              <h3 class="project-title">ori</h3>
-              <div class="project-meta">
-                <span class="project-tech mono">C++ • TUI/GUI</span>
-                <div class="project-stats">
-                  <span class="badge star-count loading" data-target="0">
-                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                    <span class="stars">0</span>
-                  </span>
-                  <span class="badge" data-language>C++</span>
-                </div>
+          <article class="project-row" data-repo="ori">
+            <div class="project-visual" aria-hidden="true"><span class="ghost">ori</span></div>
+            <div class="project-text">
+              <div class="project-meta-line">
+                <span class="project-tech">C++ · TUI / GUI</span>
+                <span class="project-stars is-loading">
+                  <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span class="count">—</span>
+                </span>
+              </div>
+              <h3>ori</h3>
+              <p class="desc">Terminal-first AI assistant with both TUI and web-based GUI. Integrates OpenRouter for multi-LLM access — built for developers who want AI workflows in the terminal or browser.</p>
+              <div class="project-links">
+                <a href="https://github.com/piratheon/ori" target="_blank" rel="noopener noreferrer" class="text-link">
+                  GitHub
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+                </a>
+                <a href="https://aur.archlinux.org/packages/ori" target="_blank" rel="noopener noreferrer" class="text-link">
+                  AUR
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+                </a>
               </div>
             </div>
-            <p class="project-desc">
-              Terminal-first AI assistant with both TUI and web-based GUI. Integrates OpenRouter for multi-LLM access. Built for developers who want AI workflows in the terminal or browser.
-            </p>
-            <div class="project-links">
-              <a href="https://github.com/piratheon/ori" target="_blank" rel="noopener noreferrer" class="link-icon" aria-label="ori on GitHub">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-              </a>
-              <a href="https://aur.archlinux.org/packages/ori" target="_blank" rel="noopener noreferrer" class="link-icon" aria-label="ori on AUR">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
-              </a>
-            </div>
           </article>
-          
+
           <!-- aion-dl -->
-          <article class="project-card glass" data-repo="aion-dl">
-            <div class="project-header">
-              <h3 class="project-title">aion-dl</h3>
-              <div class="project-meta">
-                <span class="project-tech mono">Python • GTK4</span>
-                <div class="project-stats">
-                  <span class="badge star-count loading" data-target="0">
-                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                    <span class="stars">0</span>
-                  </span>
-                  <span class="badge" data-language>Python</span>
-                </div>
+          <article class="project-row flip" data-repo="aion-dl">
+            <div class="project-visual" aria-hidden="true"><span class="ghost">aion-dl</span></div>
+            <div class="project-text">
+              <div class="project-meta-line">
+                <span class="project-tech">Python · GTK4</span>
+                <span class="project-stars is-loading">
+                  <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span class="count">—</span>
+                </span>
+              </div>
+              <h3>aion-dl</h3>
+              <p class="desc">A polished GTK4 + Libadwaita GUI frontend for yt-dlp — per-job controls, concurrent downloads, advanced format and post-processing, subtitle management, and SponsorBlock integration.</p>
+              <div class="project-links">
+                <a href="https://github.com/piratheon/aion-dl" target="_blank" rel="noopener noreferrer" class="text-link">
+                  GitHub
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+                </a>
               </div>
             </div>
-            <p class="project-desc">
-              Polished GTK4 + Libadwaita GUI frontend for yt-dlp. Features per-job controls, concurrent downloads, advanced format/post-processing, subtitle management, and SponsorBlock integration.
-            </p>
-            <div class="project-links">
-              <a href="https://github.com/piratheon/aion-dl" target="_blank" rel="noopener noreferrer" class="link-icon" aria-label="aion-dl on GitHub">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-              </a>
-            </div>
           </article>
-          
+
           <!-- Harpocrates -->
-          <article class="project-card glass" data-repo="Harpocrates">
-            <div class="project-header">
-              <h3 class="project-title">Harpocrates</h3>
-              <div class="project-meta">
-                <span class="project-tech mono">JavaScript • Steganography</span>
-                <div class="project-stats">
-                  <span class="badge star-count loading" data-target="0">
-                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                    <span class="stars">0</span>
-                  </span>
-                  <span class="badge" data-language>JavaScript</span>
-                </div>
+          <article class="project-row" data-repo="Harpocrates">
+            <div class="project-visual" aria-hidden="true"><span class="ghost">Harpo&shy;crates</span></div>
+            <div class="project-text">
+              <div class="project-meta-line">
+                <span class="project-tech">JavaScript · Steganography</span>
+                <span class="project-stars is-loading">
+                  <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span class="count">—</span>
+                </span>
+              </div>
+              <h3>Harpocrates</h3>
+              <p class="desc">Client-side web application for encrypting and hiding files inside images using AES-256-GCM and PBKDF2. Every operation runs locally in-browser — no server uploads, no data leakage.</p>
+              <div class="project-links">
+                <a href="https://github.com/piratheon/Harpocrates" target="_blank" rel="noopener noreferrer" class="text-link">
+                  GitHub
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+                </a>
+                <a href="https://piratheon.github.io/Harpocrates/" target="_blank" rel="noopener noreferrer" class="text-link">
+                  Live demo
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+                </a>
               </div>
             </div>
-            <p class="project-desc">
-              Client-side web application for encrypting and hiding files inside images using AES-256-GCM and PBKDF2. All operations occur locally in-browser — no server uploads, no data leakage.
-            </p>
-            <div class="project-links">
-              <a href="https://github.com/piratheon/Harpocrates" target="_blank" rel="noopener noreferrer" class="link-icon" aria-label="Harpocrates on GitHub">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-              </a>
-              <a href="https://piratheon.github.io/Harpocrates/" target="_blank" rel="noopener noreferrer" class="link-icon" aria-label="Harpocrates live demo">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
-              </a>
-            </div>
           </article>
-          
+
           <!-- clpbrd -->
-          <article class="project-card glass" data-repo="clpbrd">
-            <div class="project-header">
-              <h3 class="project-title">clpbrd</h3>
-              <div class="project-meta">
-                <span class="project-tech mono">C++ • CLI</span>
-                <div class="project-stats">
-                  <span class="badge star-count loading" data-target="0">
-                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                    <span class="stars">0</span>
-                  </span>
-                  <span class="badge" data-language>C++</span>
-                </div>
+          <article class="project-row flip" data-repo="clpbrd">
+            <div class="project-visual" aria-hidden="true"><span class="ghost">clpbrd</span></div>
+            <div class="project-text">
+              <div class="project-meta-line">
+                <span class="project-tech">C++ · CLI</span>
+                <span class="project-stars is-loading">
+                  <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span class="count">—</span>
+                </span>
               </div>
-            </div>
-            <p class="project-desc">
-              Minimal, cross-platform command-line clipboard utility written in C++. Provides reliable copy-to-clipboard functionality for scripts and terminal workflows without external dependencies.
-            </p>
-            <div class="project-links">
-              <a href="https://github.com/piratheon/clpbrd" target="_blank" rel="noopener noreferrer" class="link-icon" aria-label="clpbrd on GitHub">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-              </a>
+              <h3>clpbrd</h3>
+              <p class="desc">A minimal, cross-platform command-line clipboard utility written in C++ — reliable copy-to-clipboard for scripts and terminal workflows, with no external dependencies.</p>
+              <div class="project-links">
+                <a href="https://github.com/piratheon/clpbrd" target="_blank" rel="noopener noreferrer" class="text-link">
+                  GitHub
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+                </a>
+              </div>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Sponsor Section -->
-    <section id="sponsor" class="section">
+    <!-- ============================= SPONSOR ============================= -->
+    <section id="sponsor" class="block">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Support Development</h2>
-          <p class="section-desc">If my tools have helped you, consider supporting continued development of privacy-first, open-source software.</p>
-        </div>
-        
-        <div class="sponsor-card glass">
-          <div class="ton-wallet">
-            <img src="https://raw.githubusercontent.com/piratheon/piratheon/refs/heads/main/.github/wallet.png"/>
-            <div style="flex: 1; min-width: 200px;">
-              <div class="badge ton" style="margin-bottom: 0.75rem;">
-                <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                Telegram TON
-              </div>
-              <div class="ton-address mono" id="ton-address">UQAbjx-d8UQ_FxEgONFB3Y412f4fW7e-zOdBXmMSs59pkYog</div>
-              <button class="copy-btn" id="copy-ton" aria-label="Copy TON wallet address">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                <span>Copy Address</span>
-              </button>
-            </div>
+        <div class="sponsor-grid">
+          <div class="sponsor-copy">
+            <span class="eyebrow">Support the work</span>
+            <h2 class="section-heading">Funding keeps these tools independent.</h2>
+            <p>If rika-agent, ori, or any of these tools have helped you, consider supporting continued development of privacy-first, open-source software.</p>
+          </div>
+
+          <div class="wallet-block">
+            <span class="wallet-network">TON Wallet — Telegram</span>
+            <p class="wallet-address" id="ton-address">UQAbjx-d8UQ_FxEgONFB3Y412f4fW7e-zOdBXmMSs59pkYog</p>
+            <button class="copy-btn" id="copy-ton" aria-label="Copy TON wallet address">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              <span>Copy address</span>
+            </button>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="philosophy" class="section">
+    <!-- ============================= PHILOSOPHY ============================= -->
+    <section id="philosophy" class="block">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Development Philosophy</h2>
-          <p class="section-desc">Principles that guide every tool, system, and workflow I build.</p>
+        <div class="section-head">
+          <span class="eyebrow">How I build</span>
+          <h2 class="section-heading">Principles, not frameworks.</h2>
         </div>
-        
-        <div class="philosophy-grid">
-          <div class="philosophy-item glass">
-            <h4>Linux-First</h4>
-            <p>Tools are designed for Unix-like environments first, leveraging native capabilities, POSIX standards, and terminal-centric workflows.</p>
+
+        <div class="principle-grid">
+          <div class="principle">
+            <h3>Linux-first</h3>
+            <p>Tools are designed for Unix-like environments first — leaning on native capabilities, POSIX standards, and terminal-centric workflows rather than cross-platform compromises.</p>
           </div>
-          <div class="philosophy-item glass">
-            <h4>Security-Aware</h4>
-            <p>Privacy and system integrity are non-negotiable. Encryption, sandboxing, and minimal attack surfaces are built in from the start.</p>
+          <div class="principle">
+            <h3>Security-aware</h3>
+            <p>Privacy and system integrity are non-negotiable. Encryption, sandboxing, and minimal attack surfaces are built in from the start, not bolted on after.</p>
           </div>
-          <div class="philosophy-item glass">
-            <h4>System-Oriented</h4>
-            <p>Focus on low-level understanding: process management, I/O, memory, and networking — not just abstracted frameworks.</p>
+          <div class="principle">
+            <h3>System-oriented</h3>
+            <p>Focus on low-level understanding — process management, I/O, memory, and networking — rather than stopping at abstracted frameworks.</p>
           </div>
-          <div class="philosophy-item glass">
-            <h4>Control Over Convenience</h4>
-            <p>User autonomy and transparency take precedence over opaque automation. Every action should be inspectable and reversible.</p>
+          <div class="principle">
+            <h3>Control over convenience</h3>
+            <p>User autonomy and transparency take precedence over opaque automation. Every action a tool takes should be inspectable and reversible.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section">
+    <!-- ============================= CONTACT ============================= -->
+    <section id="contact" class="block">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Get In Touch</h2>
-          <p class="section-desc">Open to collaboration on system tooling, security research, and agentic AI projects.</p>
-        </div>
-        
-        <a href="mailto:chafiq.dev@gmail.com" class="contact-email">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          chafiq.dev@gmail.com
-        </a>
-        
-        <div class="contact-links">
-          <a href="https://github.com/piratheon" target="_blank" rel="noopener noreferrer" class="contact-link mono">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-            @piratheon
-          </a>
-          <a href="https://t.me/piratheon" target="_blank" rel="noopener noreferrer" class="contact-link mono">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 17.97L4.58 13.62 19.54 3.5l-1.36 13.03H4.58z"/></svg>
-            @piratheon
-          </a>
+        <span class="eyebrow">Get in touch</span>
+        <h2 class="section-heading">Open to collaboration on systems, security, and agentic AI.</h2>
+        <div class="contact-body">
+          <a href="mailto:chafiq.dev@gmail.com" class="contact-email">chafiq.dev@gmail.com</a>
+          <div class="contact-secondary">
+            <p class="contact-note">Available for open-source collaboration, security research, and systems-level consulting. Response within 24&ndash;48&thinsp;h.</p>
+            <a href="https://github.com/piratheon" target="_blank" rel="noopener noreferrer" class="text-link">
+              @piratheon on GitHub
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
+            <a href="https://t.me/piratheon" target="_blank" rel="noopener noreferrer" class="text-link">
+              @piratheon on Telegram
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer Social Bar -->
-  <div class="container">
-    <div class="footer-social">
-      <a href="https://github.com/piratheon" target="_blank" rel="noopener noreferrer" class="social-link mono">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-        GitHub
-      </a>
-      <a href="mailto:chafiq.dev@gmail.com" class="social-link">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        Email
-      </a>
-      <a href="https://facebook.com/piratheon" target="_blank" rel="noopener noreferrer" class="social-link">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.852V15.466h-2.916v-3.092h2.916V9.81c0-2.888 1.733-4.474 4.383-4.474 1.27 0 2.368.094 2.682.137v3.118h-1.83c-1.43 0-1.704.68-1.704 1.676v2.176h3.407l-.447 3.092h-2.96v6.464C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        Facebook
-      </a>
-      <a href="https://instagram.com/piratheon" target="_blank" rel="noopener noreferrer" class="social-link">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.265.058 2.128.26 2.89.558.763.298 1.407.694 2.05 1.337.643.643 1.039 1.287 1.337 2.05.298.762.5 1.625.558 2.89.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.058 1.265-.26 2.128-.558 2.89-.298.763-.694 1.407-1.337 2.05-.643.643-1.287 1.039-2.05 1.337-.762.298-1.625.5-2.89.558-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.265-.058-2.128-.26-2.89-.558-.763-.298-1.407-.694-2.05-1.337-.643-.643-1.039-1.287-1.337-2.05-.298-.762-.5-1.625-.558-2.89-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.058-1.265.26-2.128.558-2.89.298-.763.694-1.407 1.337-2.05.643-.643 1.287-1.039 2.05-1.337.762-.298 1.625-.5 2.89-.558 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.28.058-2.149.26-2.91.558-.76.298-1.404.694-2.047 1.337-.643.643-1.039 1.287-1.337 2.047-.298.761-.5 1.63-.558 2.91-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.058 1.28.26 2.149.558 2.91.298.76.694 1.404 1.337 2.047.643.643 1.287 1.039 2.047 1.337.761.298 1.63.5 2.91.558 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.28-.058 2.149-.26 2.91-.558.76-.298 1.404-.694 2.047-1.337.643-.643 1.039-1.287 1.337-2.047.298-.761.5-1.63.558-2.91.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.058-1.28-.26-2.149-.558-2.91-.298-.76-.694-1.404-1.337-2.047-.643-.643-1.287-1.039-2.047-1.337-.761-.298-1.63-.5-2.91-.558-1.28-.058-1.688-.072-4.947-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        Instagram
-      </a>
-      <a href="https://reddit.com/user/piratheon" target="_blank" rel="noopener noreferrer" class="social-link">
-       <svg fill="#94a3b8" width="256px" height="256px" viewBox="0 0 1024.00 1024.00" xmlns="http://www.w3.org/2000/svg" class="icon" stroke="#94a3b8" stroke-width="0.01024"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="4.096"></g><g id="SVGRepo_iconCarrier"> <path d="M584 548a36 36 0 1 0 72 0 36 36 0 1 0-72 0zm144-108a35.9 35.9 0 0 0-32.5 20.6c18.8 14.3 34.4 30.7 45.9 48.8A35.98 35.98 0 0 0 728 440zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm245 477.9c4.6 13.5 7 27.6 7 42.1 0 99.4-112.8 180-252 180s-252-80.6-252-180c0-14.5 2.4-28.6 7-42.1A72.01 72.01 0 0 1 296 404c27.1 0 50.6 14.9 62.9 37 36.2-19.8 80.2-32.8 128.1-36.1l58.4-131.1c4.3-9.8 15.2-14.8 25.5-11.8l91.6 26.5a54.03 54.03 0 0 1 101.6 25.6c0 29.8-24.2 54-54 54-23.5 0-43.5-15.1-50.9-36.1L577 308.3l-43 96.5c49.1 3 94.2 16.1 131.2 36.3 12.3-22.1 35.8-37 62.9-37 39.8 0 72 32.2 72 72-.1 29.3-17.8 54.6-43.1 65.8zm-171.3 83c-14.9 11.7-44.3 24.3-73.7 24.3s-58.9-12.6-73.7-24.3c-9.3-7.3-22.7-5.7-30 3.6-7.3 9.3-5.7 22.7 3.6 30 25.7 20.4 65 33.5 100.1 33.5 35.1 0 74.4-13.1 100.2-33.5 9.3-7.3 10.9-20.8 3.6-30a21.46 21.46 0 0 0-30.1-3.6zM296 440a35.98 35.98 0 0 0-13.4 69.4c11.5-18.1 27.1-34.5 45.9-48.8A35.9 35.9 0 0 0 296 440zm72 108a36 36 0 1 0 72 0 36 36 0 1 0-72 0z"></path> </g></svg>
-        Reddit
-      </a>
-      <a href="https://aur.archlinux.org/account/piratheon" target="_blank" rel="noopener noreferrer" class="social-link mono aur">
-<svg fill="#94a3b8" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" stroke="#94a3b8"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15.188 0.807c-1.354 3.313-2.167 5.484-3.672 8.703 0.922 0.979 2.057 2.12 3.896 3.406-1.979-0.818-3.328-1.635-4.339-2.484-1.927 4.026-4.948 9.75-11.073 20.76 4.818-2.781 8.547-4.495 12.026-5.151-0.146-0.641-0.234-1.333-0.229-2.063l0.005-0.151c0.078-3.089 1.682-5.458 3.583-5.297s3.38 2.792 3.307 5.88c-0.016 0.578-0.083 1.135-0.198 1.656 3.443 0.672 7.135 2.38 11.885 5.125-0.938-1.724-1.771-3.281-2.573-4.76-1.255-0.974-2.568-2.245-5.24-3.62 1.839 0.479 3.151 1.031 4.177 1.646-8.12-15.109-8.771-17.12-11.557-23.651zM30.531 28.479v-0.828h-0.313v-0.115h0.75v0.115h-0.313v0.828h-0.125zM31.099 28.479v-0.943h0.188l0.224 0.667c0.021 0.063 0.036 0.109 0.042 0.141 0.010-0.031 0.031-0.083 0.052-0.151l0.224-0.656h0.172v0.943h-0.12v-0.792l-0.276 0.792h-0.115l-0.271-0.802v0.802h-0.12z"></path> </g></svg>
-        AUR
-      </a>
-      <a href="https://t.me/piratheon" target="_blank" rel="noopener noreferrer" class="social-link mono">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 17.97L4.58 13.62 19.54 3.5l-1.36 13.03H4.58z"/></svg>
-        Telegram
-      </a>
-    </div>
-  </div>
-
   <footer>
     <div class="container">
-      <p>&copy; <span id="year"></span> Chafiq El Ibrahimi.</p>
+      <p class="footer-echo">Piratheon</p>
+      <div class="footer-bottom">
+        <ul class="footer-social">
+          <li><a href="https://github.com/piratheon" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>GitHub</a></li>
+          <li><a href="mailto:chafiq.dev@gmail.com"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>Email</a></li>
+          <li><a href="https://t.me/piratheon" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M11.944 17.97L4.58 13.62 19.54 3.5l-1.36 13.03H4.58z"/></svg>Telegram</a></li>
+          <li><a href="https://facebook.com/piratheon" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.852V15.466h-2.916v-3.092h2.916V9.81c0-2.888 1.733-4.474 4.383-4.474 1.27 0 2.368.094 2.682.137v3.118h-1.83c-1.43 0-1.704.68-1.704 1.676v2.176h3.407l-.447 3.092h-2.96v6.464C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a></li>
+          <li><a href="https://instagram.com/piratheon" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.265.058 2.128.26 2.89.558.763.298 1.407.694 2.05 1.337.643.643 1.039 1.287 1.337 2.05.298.762.5 1.625.558 2.89.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.058 1.265-.26 2.128-.558 2.89-.298.763-.694 1.407-1.337 2.05-.643.643-1.287 1.039-2.05 1.337-.762.298-1.625.5-2.89.558-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.265-.058-2.128-.26-2.89-.558-.763-.298-1.407-.694-2.05-1.337-.643-.643-1.039-1.287-1.337-2.05-.298-.762-.5-1.625-.558-2.89-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.058-1.265.26-2.128.558-2.89.298-.763.694-1.407 1.337-2.05.643-.643 1.287-1.039 2.05-1.337.762-.298 1.625-.5 2.89-.558 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.28.058-2.149.26-2.91.558-.76.298-1.404.694-2.047 1.337-.643.643-1.039 1.287-1.337 2.047-.298.761-.5 1.63-.558 2.91-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.058 1.28.26 2.149.558 2.91.298.76.694 1.404 1.337 2.047.643.643 1.287 1.039 2.047 1.337.761.298 1.63.5 2.91.558 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.28-.058 2.149-.26 2.91-.558.76-.298 1.404-.694 2.047-1.337.643-.643 1.039-1.287 1.337-2.047.298-.761.5-1.63.558-2.91.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.058-1.28-.26-2.149-.558-2.91-.298-.76-.694-1.404-1.337-2.047-.643-.643-1.287-1.039-2.047-1.337-.761-.298-1.63-.5-2.91-.558-1.28-.058-1.688-.072-4.947-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>Instagram</a></li>
+          <li><a href="https://reddit.com/user/piratheon" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 1024 1024"><path d="M584 548a36 36 0 1 0 72 0 36 36 0 1 0-72 0zm144-108a35.9 35.9 0 0 0-32.5 20.6c18.8 14.3 34.4 30.7 45.9 48.8A35.98 35.98 0 0 0 728 440zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm245 477.9c4.6 13.5 7 27.6 7 42.1 0 99.4-112.8 180-252 180s-252-80.6-252-180c0-14.5 2.4-28.6 7-42.1A72.01 72.01 0 0 1 296 404c27.1 0 50.6 14.9 62.9 37 36.2-19.8 80.2-32.8 128.1-36.1l58.4-131.1c4.3-9.8 15.2-14.8 25.5-11.8l91.6 26.5a54.03 54.03 0 0 1 101.6 25.6c0 29.8-24.2 54-54 54-23.5 0-43.5-15.1-50.9-36.1L577 308.3l-43 96.5c49.1 3 94.2 16.1 131.2 36.3 12.3-22.1 35.8-37 62.9-37 39.8 0 72 32.2 72 72-.1 29.3-17.8 54.6-43.1 65.8zm-171.3 83c-14.9 11.7-44.3 24.3-73.7 24.3s-58.9-12.6-73.7-24.3c-9.3-7.3-22.7-5.7-30 3.6-7.3 9.3-5.7 22.7 3.6 30 25.7 20.4 65 33.5 100.1 33.5 35.1 0 74.4-13.1 100.2-33.5 9.3-7.3 10.9-20.8 3.6-30a21.46 21.46 0 0 0-30.1-3.6zM296 440a35.98 35.98 0 0 0-13.4 69.4c11.5-18.1 27.1-34.5 45.9-48.8A35.9 35.9 0 0 0 296 440zm72 108a36 36 0 1 0 72 0 36 36 0 1 0-72 0z"/></svg>Reddit</a></li>
+          <li><a href="https://aur.archlinux.org/account/piratheon" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 32 32"><path d="M15.188 0.807c-1.354 3.313-2.167 5.484-3.672 8.703 0.922 0.979 2.057 2.12 3.896 3.406-1.979-0.818-3.328-1.635-4.339-2.484-1.927 4.026-4.948 9.75-11.073 20.76 4.818-2.781 8.547-4.495 12.026-5.151-0.146-0.641-0.234-1.333-0.229-2.063l0.005-0.151c0.078-3.089 1.682-5.458 3.583-5.297s3.38 2.792 3.307 5.88c-0.016 0.578-0.083 1.135-0.198 1.656 3.443 0.672 7.135 2.38 11.885 5.125-0.938-1.724-1.771-3.281-2.573-4.76-1.255-0.974-2.568-2.245-5.24-3.62 1.839 0.479 3.151 1.031 4.177 1.646-8.12-15.109-8.771-17.12-11.557-23.651zM30.531 28.479v-0.828h-0.313v-0.115h0.75v0.115h-0.313v0.828h-0.125zM31.099 28.479v-0.943h0.188l0.224 0.667c0.021 0.063 0.036 0.109 0.042 0.141 0.010-0.031 0.031-0.083 0.052-0.151l0.224-0.656h0.172v0.943h-0.12v-0.792l-0.276 0.792h-0.115l-0.271-0.802v0.802h-0.12z"/></svg>AUR</a></li>
+        </ul>
+        <p class="copyright">&copy; <span id="year"></span> Chafiq El Ibrahimi.</p>
+      </div>
     </div>
   </footer>
 
   <script>
-    // ===== UTILITIES =====
+    'use strict';
     const $ = (sel, ctx = document) => ctx.querySelector(sel);
     const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
-    
+
+    // ===== YEAR =====
     $('#year').textContent = new Date().getFullYear();
-    
-    // ===== HEADER SCROLL EFFECT =====
+
+    // ===== HEADER SCROLL STATE =====
     const header = $('header');
-    const onScroll = () => {
-      if (window.scrollY > 50) header.classList.add('scrolled');
-      else header.classList.remove('scrolled');
-    };
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
-    
-    // ===== MOBILE NAV TOGGLE =====
+
+    // ===== MOBILE NAV =====
     const navToggle = $('.nav-toggle');
     const navMenu = $('#nav-menu');
-    navToggle?.addEventListener('click', () => {
-      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', !expanded);
-      navMenu.classList.toggle('active');
+    navToggle.addEventListener('click', () => {
+      const isOpen = navMenu.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
     });
-    
     $$('#nav-menu a').forEach(link => {
       link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
+        navMenu.classList.remove('is-open');
         navToggle.setAttribute('aria-expanded', 'false');
       });
     });
-    
-    // ===== TELEGRAM CHAT DEMO =====
-    const chatMessages = [
-      { sender: 'user', text: '/autowatch "guard my server"', time: '14:23' },
-      { sender: 'agent', text: '✓ Created 4 watchers: system, process, url, log\n✓ Monitoring active. Alerts will trigger on anomalies.', time: '14:23' },
-      { sender: 'user', text: 'analyze nginx errors from last 24h', time: '14:25' },
-      { sender: 'agent', text: '→ Running: tail -1000 /var/log/nginx/error.log\n→ Pattern analysis complete. Top issue: upstream timeout (67%)\n→ Report saved to ~/.Rika-Workspace/nginx-report.md', time: '14:26' },
-      { sender: 'agent', text: '✓ File delivered to Telegram.', time: '14:26' }
+
+    // ===== MOTION =====
+    // The hero entrance is handled purely in CSS (one deliberate moment).
+    // Everything else on the page is static on load — no scattered scroll-triggered
+    // fade-ins, which is both calmer and avoids any risk of content getting stuck
+    // hidden if a user navigates by anchor link rather than by scrolling.
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ===== ARIA — TELEGRAM CHAT DEMO =====
+    const tgMsgsEl   = $('#tg-msgs');
+    const tgStatusEl = $('#tg-status-txt');
+
+    // Script: each entry is one event in the animated chat replay.
+    // kind: 'date' | 'out' | 'in' | 'in-code'
+    const TG_SCRIPT = [
+      { kind: 'date', text: 'June 20' },
+      { kind: 'out',  text: '/status', time: '22:47' },
+      { kind: 'in-code', title: 'Status \u2014 Aria',
+        code: 'Telegram ID:  0123456789\nDB keys:      4 (3 active)\nEnv keys:     2\nModel:        gemini-2.0-flash\nWatchers:     0 active',
+        time: '22:47' },
+      { kind: 'date', text: 'June 22' },
+      { kind: 'out',  text: '/autowatch "guard my server"', time: '14:23' },
+      { kind: 'in',   text: 'Created 4 watchers:\nsystem \u00b7 process \u00b7 url \u00b7 log\n\nMonitoring active \u2014 alerts trigger on anomalies.', time: '14:23' },
+      { kind: 'out',  text: 'analyze nginx errors from last 24h', time: '14:25' },
+      { kind: 'in',   text: 'Pattern analysis complete.\nTop issue: upstream timeout (67%)\n\nReport delivered to this chat.', time: '14:26' },
     ];
-    
-    const tgContainer = $('#tg-messages');
-    let messageIndex = 0;
-    
-    function addMessage(msg) {
-      const el = document.createElement('div');
-      el.className = `tg-message ${msg.sender}`;
-      el.innerHTML = `${msg.text}<span class="time">${msg.time}</span>`;
-      el.style.animationDelay = `${messageIndex * 0.15}s`;
-      tgContainer.appendChild(el);
-      tgContainer.scrollTop = tgContainer.scrollHeight;
-      messageIndex++;
+
+    // Double-check SVG (read receipt) for outgoing bubbles
+    const TICK_SVG = `<svg viewBox="0 0 18 9" aria-hidden="true"><polyline points="1,4 5,8 11,1" fill="none"/><polyline points="8,4 12,8 17,1" fill="none"/></svg>`;
+
+    function tgDateSep(text) {
+      const d = document.createElement('div');
+      d.className = 'tg-datesep';
+      d.innerHTML = `<span>${text}</span>`;
+      return d;
     }
-    
-    function startChatDemo() {
-      tgContainer.innerHTML = '';
-      messageIndex = 0;
-      
-      function showTyping() {
-        const typing = document.createElement('div');
-        typing.className = 'tg-typing';
-        typing.innerHTML = '<span></span><span></span><span></span>';
-        typing.id = 'typing-indicator';
-        tgContainer.appendChild(typing);
-        tgContainer.scrollTop = tgContainer.scrollHeight;
+
+    function tgBubble(entry) {
+      const row = document.createElement('div');
+      row.className = `tg-row ${entry.kind === 'out' ? 'out' : 'in'}`;
+
+      // Avatar (incoming only)
+      if (entry.kind !== 'out') {
+        const av = document.createElement('div');
+        av.className = 'tg-row-av';
+        av.textContent = 'A';
+        row.appendChild(av);
       }
-      
-      function hideTyping() {
-        const typing = $('#typing-indicator');
-        if (typing) typing.remove();
+
+      const bub = document.createElement('div');
+      bub.className = 'tg-bub';
+
+      if (entry.kind === 'in-code') {
+        // Bold title line + monospace block
+        const title = document.createElement('strong');
+        title.style.cssText = 'display:block;font-size:13.5px;margin-bottom:2px;';
+        title.textContent = entry.title;
+        bub.appendChild(title);
+        const code = document.createElement('div');
+        code.className = 'tg-code';
+        code.textContent = entry.code;
+        bub.appendChild(code);
+      } else {
+        const span = document.createElement('span');
+        span.style.whiteSpace = 'pre-line';
+        span.textContent = entry.text;
+        bub.appendChild(span);
       }
-      
+
+      // Meta: time + tick
+      const meta = document.createElement('div');
+      meta.className = 'tg-meta';
+      meta.innerHTML = entry.time;
+      if (entry.kind === 'out') {
+        const tick = document.createElement('span');
+        tick.className = 'tg-tick';
+        tick.innerHTML = TICK_SVG;
+        meta.appendChild(tick);
+      }
+      bub.appendChild(meta);
+
+      row.appendChild(bub);
+      return row;
+    }
+
+    function tgTypingRow() {
+      const row = document.createElement('div');
+      row.className = 'tg-typing-row';
+      row.id = 'tg-typing';
+      row.innerHTML = `
+        <div class="tg-row-av">A</div>
+        <div class="tg-typing-bub">
+          <div class="tg-dot"></div>
+          <div class="tg-dot"></div>
+          <div class="tg-dot"></div>
+        </div>`;
+      return row;
+    }
+
+    function tgScroll() {
+      if (tgMsgsEl) tgMsgsEl.scrollTop = tgMsgsEl.scrollHeight;
+    }
+
+    function runTgDemo() {
+      if (!tgMsgsEl) return;
+      tgMsgsEl.innerHTML = '';
+      if (tgStatusEl) { tgStatusEl.textContent = 'bot'; tgStatusEl.classList.remove('typing'); }
+
       let i = 0;
-      const interval = setInterval(() => {
-        if (i >= chatMessages.length) {
-          clearInterval(interval);
-          setTimeout(startChatDemo, 4000);
+      const delays = { out: 750, in: 850, 'in-code': 1100, date: 300 };
+
+      const step = () => {
+        if (i >= TG_SCRIPT.length) {
+          setTimeout(runTgDemo, 5000);
           return;
         }
-        
-        const msg = chatMessages[i];
-        
-        if (msg.sender === 'agent' && i > 0 && i < chatMessages.length - 1) {
-          showTyping();
-          setTimeout(() => {
-            hideTyping();
-            addMessage(msg);
-          }, 800);
-        } else {
-          addMessage(msg);
+        const entry = TG_SCRIPT[i];
+
+        if (entry.kind === 'date') {
+          tgMsgsEl.appendChild(tgDateSep(entry.text));
+          tgScroll();
+          i++;
+          setTimeout(step, delays.date);
+          return;
         }
-        i++;
-      }, 1200);
-    }
-    
-    const chatObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          startChatDemo();
-          chatObserver.unobserve(entry.target);
+
+        if (entry.kind === 'out') {
+          tgMsgsEl.appendChild(tgBubble(entry));
+          tgScroll();
+          i++;
+          setTimeout(step, delays.out);
+          return;
         }
-      });
-    }, { threshold: 0.3 });
-    
-    if ($('.telegram-chat')) {
-      chatObserver.observe($('.telegram-chat'));
+
+        // Incoming message: show typing indicator + header status first
+        if (tgStatusEl) { tgStatusEl.textContent = 'typing'; tgStatusEl.classList.add('typing'); }
+        const typingEl = tgTypingRow();
+        tgMsgsEl.appendChild(typingEl);
+        tgScroll();
+
+        const typingDuration = entry.kind === 'in-code' ? 1300 : 950;
+        setTimeout(() => {
+          typingEl.remove();
+          if (tgStatusEl) { tgStatusEl.textContent = 'online'; tgStatusEl.classList.remove('typing'); }
+          tgMsgsEl.appendChild(tgBubble(entry));
+          tgScroll();
+          i++;
+          setTimeout(step, delays[entry.kind] || 850);
+        }, typingDuration);
+      };
+
+      step();
     }
-    
-    // ===== GITHUB API INTEGRATION =====
+
+    if (tgMsgsEl) {
+      if (reduceMotion) {
+        // Static fallback: render all messages immediately
+        TG_SCRIPT.forEach(entry => {
+          if (entry.kind === 'date') tgMsgsEl.appendChild(tgDateSep(entry.text));
+          else tgMsgsEl.appendChild(tgBubble(entry));
+        });
+        tgScroll();
+      } else {
+        const tgObserver = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) { runTgDemo(); tgObserver.unobserve(e.target); }
+          });
+        }, { threshold: 0.35 });
+        tgObserver.observe($('.tg-mockup'));
+      }
+    }
+
+    // ===== GITHUB LIVE STATS =====
     const GITHUB_USER = 'piratheon';
-    const REPOS = ['rika-agent', 'ori', 'aion-dl', 'Harpocrates', 'clpbrd'];
     const FALLBACK_STARS = { 'rika-agent': 42, 'ori': 18, 'aion-dl': 31, 'Harpocrates': 27, 'clpbrd': 15 };
-    const FALLBACK_LANG = { 'rika-agent': 'Python', 'ori': 'C++', 'aion-dl': 'Python', 'Harpocrates': 'JavaScript', 'clpbrd': 'C++' };
-    
-    const cache = {
+
+    const ghCache = {
       get(key) {
         try {
-          const item = localStorage.getItem(`gh_${key}`);
-          if (!item) return null;
-          const { value, expiry } = JSON.parse(item);
-          if (Date.now() > expiry) {
-            localStorage.removeItem(`gh_${key}`);
-            return null;
-          }
+          const raw = sessionStorage.getItem(`gh_${key}`);
+          if (!raw) return null;
+          const { value, expiry } = JSON.parse(raw);
+          if (Date.now() > expiry) { sessionStorage.removeItem(`gh_${key}`); return null; }
           return value;
         } catch { return null; }
       },
       set(key, value, ttlMinutes = 60) {
         try {
-          const item = { value, expiry: Date.now() + (ttlMinutes * 60 * 1000) };
-          localStorage.setItem(`gh_${key}`, JSON.stringify(item));
-        } catch {}
+          sessionStorage.setItem(`gh_${key}`, JSON.stringify({ value, expiry: Date.now() + ttlMinutes * 60000 }));
+        } catch { /* sessionStorage unavailable — silently skip caching */ }
       }
     };
-    
-    function animateCounter(el, target, duration = 800) {
-      const start = 0;
-      const increment = target / (duration / 16);
-      let current = start;
-      
-      const step = () => {
-        current += increment;
-        if (current < target) {
-          el.textContent = Math.floor(current).toLocaleString();
-          requestAnimationFrame(step);
-        } else {
-          el.textContent = target.toLocaleString();
-        }
-      };
-      step();
-    }
-    
-    async function fetchRepoData(repo) {
-      const cached = cache.get(repo);
-      if (cached) return cached;
-      
+
+    async function fetchRepoStars(repo) {
+      const cached = ghCache.get(repo);
+      if (cached !== null) return cached;
       try {
         const res = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${repo}`, {
-          headers: { 'Accept': 'application/vnd.github.v3+json' }
+          headers: { Accept: 'application/vnd.github.v3+json' }
         });
-        
-        if (!res.ok) throw new Error('API error');
-        
+        if (!res.ok) throw new Error(`GitHub API responded ${res.status}`);
         const data = await res.json();
-        const result = {
-          stars: data.stargazers_count,
-          language: data.language || FALLBACK_LANG[repo] || 'Unknown',
-          updated: data.pushed_at
-        };
-        
-        cache.set(repo, result);
-        return result;
+        const stars = typeof data.stargazers_count === 'number' ? data.stargazers_count : (FALLBACK_STARS[repo] ?? 0);
+        ghCache.set(repo, stars);
+        return stars;
       } catch (err) {
-        return {
-          stars: FALLBACK_STARS[repo] || 0,
-          language: FALLBACK_LANG[repo] || 'Unknown'
-        };
+        console.warn(`rika-portfolio: falling back to cached star count for ${repo}:`, err.message);
+        return FALLBACK_STARS[repo] ?? 0;
       }
     }
-    
-    async function updateProjectStats() {
-      const cards = $$('.project-card[data-repo]');
-      
-      for (const card of cards) {
-        const repo = card.dataset.repo;
-        const starEl = card.querySelector('.star-count .stars');
-        const langEl = card.querySelector('[data-language]');
-        
-        if (!starEl) continue;
-        
-        const data = await fetchRepoData(repo);
-        
-        starEl.parentElement.classList.remove('loading');
-        animateCounter(starEl, data.stars);
-        
-        if (langEl && data.language) {
-          langEl.textContent = data.language;
-        }
+
+    async function hydrateProjectStats() {
+      const rows = $$('.project-row[data-repo]');
+      for (const row of rows) {
+        const repo = row.dataset.repo;
+        const starsEl = row.querySelector('.project-stars');
+        const countEl = row.querySelector('.count');
+        if (!starsEl || !countEl) continue;
+        const stars = await fetchRepoStars(repo);
+        starsEl.classList.remove('is-loading');
+        countEl.textContent = stars.toLocaleString();
       }
     }
-    
-    document.addEventListener('DOMContentLoaded', () => {
-      setTimeout(updateProjectStats, 500);
-    });
-    
-    // ===== COPY TON WALLET =====
+    document.addEventListener('DOMContentLoaded', () => setTimeout(hydrateProjectStats, 300));
+
+    // ===== COPY TON WALLET ADDRESS =====
     const copyBtn = $('#copy-ton');
-    const tonAddress = $('#ton-address');
-    
+    const tonAddressEl = $('#ton-address');
     copyBtn?.addEventListener('click', async () => {
-      const address = tonAddress.textContent.trim();
+      const address = tonAddressEl.textContent.trim();
       try {
         await navigator.clipboard.writeText(address);
         copyBtn.classList.add('copied');
         copyBtn.querySelector('span').textContent = 'Copied';
         setTimeout(() => {
           copyBtn.classList.remove('copied');
-          copyBtn.querySelector('span').textContent = 'Copy Address';
+          copyBtn.querySelector('span').textContent = 'Copy address';
         }, 2000);
       } catch (err) {
-        console.error('Failed to copy:', err);
+        console.error('rika-portfolio: clipboard write failed:', err);
+        copyBtn.querySelector('span').textContent = 'Select & copy manually';
       }
     });
-    
-    // ===== 3D CANVAS SETUP (Three.js) =====
-    document.addEventListener('DOMContentLoaded', () => {
-      const canvas = document.createElement('canvas');
-      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-      const hasWebGL = !!gl;
-      
-      if (!hasWebGL) {
-        document.body.classList.add('no-webgl');
-        return;
-      }
-      
-      if (typeof THREE === 'undefined') {
-        console.warn('Three.js not loaded; using fallback');
-        document.body.classList.add('no-webgl');
-        return;
-      }
-      
-      const container = $('#canvas-container');
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: 'low-power' });
-      
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      container.appendChild(renderer.domElement);
-      
-      const geometry = new THREE.IcosahedronGeometry(2, 1);
-      const material = new THREE.MeshBasicMaterial({
-        color: 0x6366f1,
-        wireframe: true,
-        transparent: true,
-        opacity: 0.85
-      });
-      const lattice = new THREE.Mesh(geometry, material);
-      scene.add(lattice);
-      
-      const particles = new THREE.Group();
-      const particleGeo = new THREE.SphereGeometry(0.03, 8, 8);
-      const particleMat = new THREE.MeshBasicMaterial({ color: 0x22d3ee });
-      
-      for (let i = 0; i < 80; i++) {
-        const p = new THREE.Mesh(particleGeo, particleMat);
-        p.position.set(
-          (Math.random() - 0.5) * 6,
-          (Math.random() - 0.5) * 6,
-          (Math.random() - 0.5) * 6
-        );
-        particles.add(p);
-      }
-      scene.add(particles);
-      
-      const ambient = new THREE.AmbientLight(0xffffff, 0.3);
-      scene.add(ambient);
-      
-      camera.position.z = 5;
-      
-      let mouseX = 0, mouseY = 0, targetX = 0, targetY = 0;
-      let isIdle = true;
-      let idleTimer;
-      
-      const onPointerMove = (e) => {
-        mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-        mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
-        clearTimeout(idleTimer);
-        isIdle = false;
-        idleTimer = setTimeout(() => { isIdle = true; }, 2000);
-      };
-      window.addEventListener('pointermove', onPointerMove, { passive: true });
-      
-      let scrollY = 0;
-      const onScroll3D = () => {
-        scrollY = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-      };
-      window.addEventListener('scroll', onScroll3D, { passive: true });
-      
-      const clock = new THREE.Clock();
-      const animate = () => {
-        requestAnimationFrame(animate);
-        
-        const delta = clock.getDelta();
-        const time = clock.getElapsedTime();
-        
-        targetX += (mouseX - targetX) * 0.05;
-        targetY += (mouseY - targetY) * 0.05;
-        
-        lattice.rotation.x = time * 0.1 + targetY * 0.3;
-        lattice.rotation.y = time * 0.15 + targetX * 0.3;
-        
-        const scale = 1 + scrollY * 0.4;
-        lattice.scale.set(scale, scale, scale);
-        
-        particles.rotation.y = time * 0.05;
-        particles.children.forEach((p, i) => {
-          p.position.y += Math.sin(time + i) * 0.002;
-        });
-        
-        if (isIdle) {
-          lattice.rotation.x += Math.sin(time * 0.5) * 0.002;
-          lattice.rotation.y += Math.cos(time * 0.3) * 0.002;
-        }
-        
-        renderer.render(scene, camera);
-      };
-      
-      animate();
-      
-      const onResize = () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-      };
-      window.addEventListener('resize', onResize, { passive: true });
-      
-      if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
-        let lastFrame = 0;
-        const originalRAF = window.requestAnimationFrame;
-        window.requestAnimationFrame = (cb) => {
-          const now = performance.now();
-          if (now - lastFrame >= 33) {
-            lastFrame = now;
-            originalRAF(cb);
-          }
-        };
-      }
-      
-      document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-          renderer.setAnimationLoop(null);
-        } else {
-          animate();
-        }
-      });
-    });
-    
-    // ===== INTERSECTION OBSERVER FOR LAZY 3D INIT =====
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && typeof THREE !== 'undefined' && !$('#canvas-container').dataset.init) {
-          $('#canvas-container').classList.remove('hidden');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    
-    observer.observe($('#hero'));
-    
-    // ===== ACCESSIBILITY: Reduce motion preference =====
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const canvasContainer = $('#canvas-container');
-      if (canvasContainer) {
-        canvasContainer.style.opacity = '0.3';
-      }
-    }
   </script>
 </body>
 </html>
